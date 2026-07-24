@@ -25,6 +25,7 @@ body {
   background: var(--paper);
   color: var(--black);
   font-family: Montserrat, Arial, Helvetica, sans-serif;
+  overflow-x: hidden;
 }
 
 a {
@@ -103,12 +104,14 @@ textarea {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 0 18px;
+  padding: 10px 18px;
   background: var(--black);
   color: var(--white);
   border-radius: 6px;
   font-size: 14px;
   font-weight: 800;
+  line-height: 1.15;
+  text-align: center;
 }
 
 .header-actions {
@@ -124,12 +127,14 @@ textarea {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  padding: 10px 12px;
   border: 1px solid rgba(38, 38, 38, 0.18);
   border-radius: 6px;
   background: var(--white);
   color: var(--black);
   font-size: 13px;
   font-weight: 900;
+  line-height: 1;
 }
 
 .hero {
@@ -224,12 +229,14 @@ textarea {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 0 22px;
+  padding: 13px 22px;
   border: 1px solid transparent;
   border-radius: 6px;
   cursor: pointer;
   font-weight: 900;
+  line-height: 1.15;
   text-align: center;
+  text-wrap: balance;
 }
 
 .button.primary {
@@ -359,7 +366,7 @@ textarea {
 
 .checkbox-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(145px, 1fr));
   gap: 8px;
 }
 
@@ -368,7 +375,7 @@ textarea {
 }
 
 .checkbox-label {
-  min-height: 40px;
+  min-height: 44px;
   display: flex !important;
   align-items: center;
   gap: 8px !important;
@@ -377,12 +384,20 @@ textarea {
   border: 1px solid rgba(38, 38, 38, 0.12);
   border-radius: 6px;
   background: #fbfaf8;
+  line-height: 1.2;
 }
 
 .checkbox-label input {
+  flex: 0 0 16px;
   width: 16px;
   min-height: 16px;
   accent-color: var(--red);
+}
+
+.checkbox-label span {
+  display: block;
+  min-width: 0;
+  line-height: 1.2;
 }
 
 .form-submit {
@@ -660,80 +675,49 @@ textarea {
 
 .export-section {
   display: grid;
-  grid-template-columns: minmax(0, 1.1fr) minmax(320px, 0.7fr);
-  gap: clamp(28px, 5vw, 70px);
-  align-items: center;
+  grid-template-columns: minmax(0, 1180px);
+  justify-content: center;
+  gap: clamp(28px, 5vw, 48px);
+  align-items: start;
   background: var(--green);
   color: var(--white);
 }
 
 .export-map {
   position: relative;
-  min-height: 430px;
+  max-width: 100%;
   overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.16);
+  padding: clamp(10px, 1.7vw, 18px);
+  border: 1px solid rgba(255, 255, 255, 0.22);
   border-radius: 8px;
-  background:
-    linear-gradient(135deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.02)),
-    radial-gradient(circle at 28% 36%, rgba(217, 174, 121, 0.55) 0 4px, transparent 5px),
-    radial-gradient(circle at 48% 42%, rgba(217, 174, 121, 0.55) 0 4px, transparent 5px),
-    radial-gradient(circle at 58% 55%, rgba(217, 174, 121, 0.55) 0 4px, transparent 5px),
-    radial-gradient(circle at 73% 48%, rgba(217, 174, 121, 0.55) 0 4px, transparent 5px),
-    #073f43;
+  background: var(--white);
+  box-shadow: 0 30px 90px rgba(0, 0, 0, 0.24);
 }
 
-.export-map::before {
-  content: "";
-  position: absolute;
-  inset: 16%;
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  transform: skew(-12deg) rotate(-4deg);
+.export-map img {
+  width: 100%;
+  height: auto;
+  border-radius: 6px;
 }
 
 .map-count {
-  position: absolute;
-  left: 34px;
-  bottom: 30px;
-  color: rgba(255, 255, 255, 0.95);
-  font-family: Unbounded, Montserrat, Arial, sans-serif;
-  font-size: clamp(44px, 7vw, 86px);
-  font-weight: 900;
-  line-height: 0.95;
-}
-
-.pin {
-  position: absolute;
-  padding: 7px 10px;
-  background: rgba(255, 255, 255, 0.12);
-  border: 1px solid rgba(255, 255, 255, 0.16);
+  display: inline-flex;
+  align-items: center;
+  min-height: 42px;
+  margin-top: 12px;
+  padding: 10px 14px;
+  background: var(--red);
+  color: var(--white);
   border-radius: 6px;
-  color: rgba(255, 255, 255, 0.86);
-  font-size: 12px;
+  font-family: Unbounded, Montserrat, Arial, sans-serif;
+  font-size: clamp(18px, 2.6vw, 34px);
   font-weight: 900;
-}
-
-.pin.canada {
-  left: 18%;
-  top: 26%;
-}
-
-.pin.europe {
-  left: 45%;
-  top: 34%;
-}
-
-.pin.africa {
-  left: 52%;
-  top: 58%;
-}
-
-.pin.asia {
-  left: 70%;
-  top: 40%;
+  line-height: 1;
 }
 
 .export-copy {
-  max-width: 520px;
+  order: -1;
+  max-width: 900px;
 }
 
 .export-copy .eyebrow {
@@ -745,9 +729,11 @@ textarea {
   font-family: Unbounded, Montserrat, Arial, sans-serif;
   font-size: clamp(38px, 6vw, 76px);
   line-height: 0.95;
+  overflow-wrap: anywhere;
 }
 
 .export-copy p {
+  max-width: 760px;
   color: rgba(255, 255, 255, 0.82);
   font-size: 18px;
   line-height: 1.65;
@@ -824,6 +810,8 @@ textarea {
   border-radius: 6px;
   color: var(--white);
   font-weight: 900;
+  line-height: 1.15;
+  text-align: center;
 }
 
 .faq-section {
@@ -929,7 +917,7 @@ textarea {
 
   .header-cta {
     min-height: 38px;
-    padding: 0 12px;
+    padding: 9px 12px;
     font-size: 12px;
   }
 
@@ -955,7 +943,7 @@ textarea {
 
   .button {
     width: 100%;
-    padding: 0 16px;
+    padding: 13px 16px;
   }
 
   .form-grid,
@@ -987,7 +975,15 @@ textarea {
   }
 
   .export-map {
-    min-height: 330px;
+    overflow-x: auto;
+  }
+
+  .export-map img {
+    min-width: 700px;
+  }
+
+  .map-count {
+    margin-left: 0;
   }
 
   .site-footer {

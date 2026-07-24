@@ -681,11 +681,15 @@ export default async function Home({
       </section>
 
       <section className="section export-section">
-        <div className="export-map" aria-hidden="true">
-          <span className="pin canada">{copy.export.pins[0]}</span>
-          <span className="pin europe">{copy.export.pins[1]}</span>
-          <span className="pin africa">{copy.export.pins[2]}</span>
-          <span className="pin asia">{copy.export.pins[3]}</span>
+        <div className="export-map">
+          <img
+            src="/valeso-export-map.png"
+            alt={
+              lang === "ru"
+                ? "Карта экспорта VALESO с отмеченными странами поставок"
+                : "Карта експорту VALESO з позначеними країнами постачання"
+            }
+          />
           <strong className="map-count">{copy.export.mapCount}</strong>
         </div>
         <div className="export-copy">
