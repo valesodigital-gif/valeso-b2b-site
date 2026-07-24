@@ -683,7 +683,7 @@ export default async function Home({
       <section className="section export-section">
         <div className="export-map">
           <img
-            src="/valeso-export-map.png"
+            src="/valeso-export-map.png?v=2"
             alt={
               lang === "ru"
                 ? "Карта экспорта VALESO с отмеченными странами поставок"
